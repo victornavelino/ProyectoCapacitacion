@@ -7,6 +7,9 @@ class Capacitacion(models.Model):
     objetivo = models.CharField(max_length=250)
     informacionAlPublico = models.CharField(max_length=250)
     anio = models.IntegerField()
+    fechas = models.DateTimeField()
+    cantidadMinimaAsistencia = models.IntegerField()
+    cantidadHoras = models.IntegerField()
 
 
 def __str__(self):
