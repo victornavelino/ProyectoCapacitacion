@@ -1,3 +1,5 @@
+from msilib import CAB
+
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
@@ -13,9 +15,16 @@ class Capacitacion(models.Model):
     cantidadHoras = models.IntegerField(blank=True, null=True)
     lugar = models.CharField(max_length=100, null=True)
 
-def __str__(self):
-    return self.titulo
+
+    def __str__(self):
+        return self.titulo
 
 class Area(models.Model):
     nombre = models.CharField(max_length=250)
-    capacitacion = models.ForeignKey('Capacitacion', on_delete=models.SET_NULL, null=True)
+    capacitacion = models.ForeignKey('Capacitacion',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True)
+
+    def __str__(self):
+        return self.nombre
