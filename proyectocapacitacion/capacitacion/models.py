@@ -14,7 +14,9 @@ class Capacitacion(models.Model):
     cantidadMinimaAsistencia = models.IntegerField(blank=True, null=True)
     cantidadHoras = models.IntegerField(blank=True, null=True)
     lugar = models.CharField(max_length=100, null=True)
-
+    apertura = models.DateTimeField(null=True)
+    cierre = models.DateTimeField(null=True)
+    observaciones = models.CharField(max_length=250)
 
     def __str__(self):
         return self.titulo
