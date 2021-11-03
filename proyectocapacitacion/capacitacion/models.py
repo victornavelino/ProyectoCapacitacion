@@ -1,4 +1,4 @@
-from msilib import CAB
+
 
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
@@ -17,16 +17,9 @@ class Capacitacion(models.Model):
     apertura = models.DateTimeField(null=True)
     cierre = models.DateTimeField(null=True)
     observaciones = models.CharField(max_length=250)
+    area = models.ManyToManyField('capacitacion.Area', help_text="Seleccione Area para esta Capacitacion")
 
     def __str__(self):
         return self.titulo
 
-class Area(models.Model):
-    nombre = models.CharField(max_length=250)
-    capacitacion = models.ForeignKey('Capacitacion',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True)
 
-    def __str__(self):
-        return self.nombre
