@@ -17,9 +17,14 @@ class Capacitacion(models.Model):
     apertura = models.DateTimeField(null=True)
     cierre = models.DateTimeField(null=True)
     observaciones = models.CharField(max_length=250)
-    area = models.ManyToManyField('capacitacion.Area', help_text="Seleccione Area para esta Capacitacion")
+    area = models.ManyToManyField('Area', help_text="Seleccione Area para esta Capacitacion")
 
     def __str__(self):
         return self.titulo
 
+class Area(models.Model):
+    nombre = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.nombre
 
